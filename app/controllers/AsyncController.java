@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import scala.concurrent.ExecutionContext;
 import scala.concurrent.duration.Duration;
 import scala.concurrent.ExecutionContextExecutor;
+import services.ETradeService;
 
 /**
  * This controller contains an action that demonstrates how to write
@@ -25,6 +26,7 @@ public class AsyncController extends Controller {
 
     private final ActorSystem actorSystem;
     private final ExecutionContextExecutor exec;
+    private final ETradeService eTradeService;
 
     /**
      * @param actorSystem We need the {@link ActorSystem}'s
@@ -35,9 +37,10 @@ public class AsyncController extends Controller {
      * An {@link ExecutionContextExecutor} implements both interfaces.
      */
     @Inject
-    public AsyncController(ActorSystem actorSystem, ExecutionContextExecutor exec) {
-      this.actorSystem = actorSystem;
-      this.exec = exec;
+    public AsyncController(ActorSystem actorSystem, ExecutionContextExecutor exec, ETradeService eTradeService) {
+      this.actorSystem      = actorSystem;
+      this.exec             = exec;
+      this.eTradeService    = eTradeService;
     }
 
     /**
@@ -60,6 +63,12 @@ public class AsyncController extends Controller {
             exec
         );
         return future;
+    }
+
+
+    public CompletionStage<Result> getStockData() {
+ //       return getFutureMessage(1, TimeUnit.SECONDS).thenApplyAsync(Results::ok, exec);
+        return eTradeService.getStockData().thenApplyAsync((data) -> ok(data));
     }
 
 }
