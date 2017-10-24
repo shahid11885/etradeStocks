@@ -71,7 +71,7 @@ public class EtradeTestService {
 	//
 	client      			= OAuthClientImpl.getInstance();// Instantiate IOAUthClient
 	request     			= new ClientRequest();          // Instantiate ClientRequest
-	request.setEnv(Environment.SANDBOX);                            // Use sandbox environment
+	request.setEnv(Environment.LIVE);                            // Use sandbox environment
  
 	request.setConsumerKey(oauth_consumer_key);                     // Set consumer key
 	request.setConsumerSecret(oauth_consumer_secret);               // Set consumer secret
@@ -101,11 +101,14 @@ public class EtradeTestService {
 	/* Retrieve a list of accounts */
 	request = new ClientRequest(); // Instantiate ClientRequest
 	// Prepare request
-	request.setEnv(Environment.SANDBOX);
+	request.setEnv(Environment.LIVE);
 	request.setConsumerKey(oauth_consumer_key);
 	request.setConsumerSecret(oauth_consumer_secret);
 	request.setToken(oauth_access_token);
 	request.setTokenSecret(oauth_access_token_secret);
+ 
+	//oauth_verify_code		= getOAuthVerifyCode();		// Command line input ?
+	request.setVerifierCode(oauth_verify_code); 			// Set verification code
  
 	try
 	{

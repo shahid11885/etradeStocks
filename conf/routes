@@ -16,3 +16,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # An  controller showing how to fetch stockdata
 GET     /stockdata                           controllers.AsyncController.getStockData
 
+# An  controller showing how to fetch stockdata
+GET     /login                           controllers.HomeController.login
