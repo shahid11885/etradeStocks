@@ -19,7 +19,7 @@
         <h1>Accounts</h1>
     </div>
     <table >
-      @for(a <- accounts) {
+      @for(a: Account <- accounts) {
         <tr>
             <td>@a.getAccountID()</td>
             <td>@a.getAccountName()</td>

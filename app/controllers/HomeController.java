@@ -11,13 +11,13 @@ import views.html.*;
 
 import javax.inject.Inject;
 
+static public ETradeService eTradeService = null;
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
 public class HomeController extends Controller {
-    @Inject
-    FormFactory formFactory;
+    @Inject FormFactory formFactory;
     
     
     /**
@@ -37,6 +37,9 @@ public class HomeController extends Controller {
 	Login loginPojo	= loginForm.bindFromRequest().get();
 	
 	Logger.debug(loginPojo.toString());
+
+	eTradeService = new
+
 	Account[] accts	= new Account[3];
 	int c = 0;
 	accts[c++]	= new Account("1", "shahid", 6317.22);

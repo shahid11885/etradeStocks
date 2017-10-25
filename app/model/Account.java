@@ -9,17 +9,17 @@ import lombok.extern.java.Log;
 @Setter
 @ToString
 @Log
-//@AllArgsConstructor
+@AllArgsConstructor
 
 public class Account {
     String 	accountID;
     String 	accountName;
     double	balance;
-    
-    public Account(String accountID, String accountName, double balance) {
-	this.accountID = accountID;
-	this.accountName = accountName;
-	this.balance = balance;
-    }
+
+    //    public Account(String accountID, String accountName, double balance) {
+//	this.accountID = accountID;
+//	this.accountName = accountName;
+//	this.balance = balance;
+//    }
 }
 

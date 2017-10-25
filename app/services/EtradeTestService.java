@@ -65,10 +65,9 @@ public class EtradeTestService {
     }
     
     public void  testconnections() throws IOException, ETWSException, URISyntaxException {
-    
-        //
+
 	// Obtain a request token
-	//
+
 	client      			= OAuthClientImpl.getInstance();// Instantiate IOAUthClient
 	request     			= new ClientRequest();          // Instantiate ClientRequest
 	request.setEnv(Environment.LIVE);                            // Use sandbox environment
